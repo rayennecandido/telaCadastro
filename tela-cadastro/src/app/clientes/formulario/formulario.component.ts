@@ -7,6 +7,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css'],
 })
+
 export class FormularioComponent implements OnInit {
   formCliente: FormGroup;
 

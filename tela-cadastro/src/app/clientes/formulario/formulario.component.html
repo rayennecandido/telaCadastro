@@ -5,28 +5,19 @@
         <h2>Tela de Cadastro</h2>
         <form>
           <div [formGroup]="formCliente" class="form-group">
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" formControlName="nome"/>
-          </div>
+            <label for="nome">Nome Completo</label>
+            <input type="text" name="nome" id="nome" class="form-control" formControlName="nome"/>
+            </div>
 
           <div [formGroup]="formCliente" class="form-group">
             <label for="CPF">CPF</label>
-            <label for="CPF" class="form-label"></label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="000.000.000-00"
-              formControlName="CPF"
-            />
+            <input type="text" name="CPF" id="CPF" class="form-control" formControlName="CPF" mask="000.000.000-00"/>
           </div>
 
           <div [formGroup]="formCliente" class="form-group">
-            <label for="dataNascimento">Data de nascimento</label>
-            <input
-              type="date"
-              class="form-control"
-              formControlName="dataNascimento"
-            />
+            <label for="dataNascimento">Data de Nascimento</label>
+            <input type="text" name="dataNascimento" id="dataNascimento" class="form-control" formControlName="dataNascimento" mask="d0/M0/0000" [leadZeroDateTime]="true" />
+          
           </div>
 
           <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Salvar</button>
