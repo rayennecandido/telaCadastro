@@ -1,0 +1,38 @@
+<form [formGroup]="formCliente" (ngSubmit)="OnSubmit()">
+  <div class="container mt-3">
+    <div class="row mt-5">
+      <div class="col">
+        <h2>Tela de Cadastro</h2>
+        <form>
+          <div [formGroup]="formCliente" class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" formControlName="nome"/>
+          </div>
+
+          <div [formGroup]="formCliente" class="form-group">
+            <label for="CPF">CPF</label>
+            <label for="CPF" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="000.000.000-00"
+              formControlName="CPF"
+            />
+          </div>
+
+          <div [formGroup]="formCliente" class="form-group">
+            <label for="dataNascimento">Data de nascimento</label>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="dataNascimento"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Salvar</button>
+          <button type="submit" class="btn btn-default ml-2">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</form>
