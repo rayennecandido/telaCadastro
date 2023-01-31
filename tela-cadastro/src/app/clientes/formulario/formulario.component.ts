@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../shared/cliente';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ClienteService } from '../shared/cliente.service';
 
 @Component({
   selector: 'app-formulario',
@@ -9,9 +10,16 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 
 export class FormularioComponent implements OnInit {
-  formCliente: FormGroup;
+  formCliente: FormGroup; 
+  
+  cliente: Cliente = {
+    CPF: '',
+    dataNascimento: '',
+    id: undefined,
+    nome: ''
+  };
 
-  constructor(){ }
+  constructor(private clienteService: ClienteService){ }
 
   ngOnInit() {
   this.formCliente = new FormGroup({
@@ -28,8 +36,25 @@ export class FormularioComponent implements OnInit {
       dataNascimento: new FormControl(cliente.dataNascimento),
     });
   }
+  
+  OnSubmit(): void {
+    const data = {
+      CPF: this.cliente.CPF,
+      dataNascimento: this.cliente.dataNascimento,
+      nome: this.cliente.nome,
+      id: this.cliente.id
+    };
 
-  OnSubmit() {
-    console.log(this.formCliente.value);
+    this.clienteService.save(data).subscribe({
+        next: (res) => { console.log(res);        },
+        error: (e) => console.error(e)
+      });
+  };
+  Cancelar(): void {
+    this.cliente.CPF = '',
+    this.cliente.dataNascimento = '',
+    this.cliente.nome = '',
+    this.cliente.id = ''
+
   }
-}
+  }

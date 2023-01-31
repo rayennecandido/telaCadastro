@@ -6,6 +6,8 @@ import {NgxMaskDirective, NgxMaskPipe, provideNgxMask, } from 'ngx-mask'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormularioComponent } from './clientes/formulario/formulario.component';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,10 +16,16 @@ import { FormularioComponent } from './clientes/formulario/formulario.component'
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     NgxMaskDirective, NgxMaskPipe,
+    RouterModule.forRoot([
+      {path: '', redirectTo: 'courses', pathMatch: 'full'},
+      
+      
+    ])
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent,]

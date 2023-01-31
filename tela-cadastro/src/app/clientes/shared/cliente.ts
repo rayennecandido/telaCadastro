@@ -1,5 +1,6 @@
 export interface Cliente {
+    id: any;
     nome: String;
-    CPF: number;
-    dataNascimento: number;
+    CPF: String ;
+    dataNascimento: String ;
 }

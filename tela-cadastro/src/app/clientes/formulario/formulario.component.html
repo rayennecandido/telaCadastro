@@ -6,22 +6,22 @@
         <form>
           <div [formGroup]="formCliente" class="form-group">
             <label for="nome">Nome Completo</label>
-            <input type="text" name="nome" id="nome" class="form-control" formControlName="nome"/>
+            <input type="text" name="nome" id="nome" [(ngModel)]="cliente.nome" class="form-control" formControlName="nome"/>
             </div>
 
           <div [formGroup]="formCliente" class="form-group">
             <label for="CPF">CPF</label>
-            <input type="text" name="CPF" id="CPF" class="form-control" formControlName="CPF" mask="000.000.000-00"/>
+            <input type="text" name="CPF" id="CPF" class="form-control" [(ngModel)]="cliente.CPF" formControlName="CPF" mask="000.000.000-00"/>
           </div>
 
           <div [formGroup]="formCliente" class="form-group">
             <label for="dataNascimento">Data de Nascimento</label>
-            <input type="text" name="dataNascimento" id="dataNascimento" class="form-control" formControlName="dataNascimento" mask="d0/M0/0000" [leadZeroDateTime]="true" />
+            <input type="text" name="dataNascimento" id="dataNascimento" [(ngModel)]="cliente.dataNascimento" class="form-control" formControlName="dataNascimento" mask="d0/M0/0000" [leadZeroDateTime]="true" />
           
           </div>
 
           <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Salvar</button>
-          <button type="submit" class="btn btn-default ml-2">Cancelar</button>
+          <button type="submit" class="btn btn-default ml-2" (click)="Cancelar()">Cancelar</button>
         </form>
       </div>
     </div>
